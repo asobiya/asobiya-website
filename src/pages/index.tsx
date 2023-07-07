@@ -1,4 +1,5 @@
 import {
+  Box,
   Link as ChakraLink,
   Text,
   Code,
@@ -6,7 +7,10 @@ import {
   ListIcon,
   ListItem,
 } from '@chakra-ui/react'
+
 import { CheckCircleIcon, LinkIcon } from '@chakra-ui/icons'
+import NextLink from 'next/link'
+import { NextPage } from 'next'
 
 import { Hero } from '../components/Hero'
 import { Container } from '../components/Container'
@@ -16,7 +20,7 @@ import { CTA } from '../components/CTA'
 import { Footer } from '../components/Footer'
 import Footer2 from '../components/Footer2'
 
-const Index = () => (
+const Index: NextPage = () => (
   <Container height="100vh">
     <Hero />
     <Main>
@@ -26,6 +30,13 @@ const Index = () => (
       </Text>
 
       <List spacing={3} my={0} color="text">
+        <ListItem>
+          <ListIcon as={CheckCircleIcon} color="green.500" />
+          <ChakraLink as={NextLink} href="/about" passHref>
+            Aboutページへ
+            <LinkIcon />
+          </ChakraLink>
+        </ListItem>
         <ListItem>
           <ListIcon as={CheckCircleIcon} color="green.500" />
           <ChakraLink

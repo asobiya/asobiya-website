@@ -58,6 +58,7 @@ export default function SmallCentered() {
         align={'center'}
       >
         <Stack direction={'row'} spacing={6}>
+          <Link href={'/about'}>About</Link>
           <Link href={'https://forms.gle/GYXm5wmJfSbbERwTA'}>Contact</Link>
         </Stack>
       </Container>

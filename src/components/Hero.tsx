@@ -5,7 +5,7 @@ export default function WithBackgroundImage() {
     <Flex
       w={'full'}
       h={'100vh'}
-      backgroundImage={'/images/header.png'}
+      backgroundImage={'/images/hero.png'}
       backgroundSize={'cover'}
       backgroundPosition={'center center'}
     >

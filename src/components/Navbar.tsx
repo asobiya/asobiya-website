@@ -11,18 +11,25 @@ import {
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 
-const Links = ['Dashboard', 'Projects', 'Team']
+const Links = [
+  { label: 'About', href: '/about' },
+  { label: 'Team', href: '/team' },
+  { label: 'Discord', href: 'https://discord.com/invite/R4BFAgTVYx' },
+  { label: 'Contact', href: 'https://forms.gle/GYXm5wmJfSbbERwTA' },
+]
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
   <Link
     px={2}
     py={1}
     rounded={'md'}
+    fontSize="xl"
+    color={useColorModeValue('black', 'white')}
     _hover={{
       textDecoration: 'none',
       bg: useColorModeValue('gray.200', 'gray.700'),
     }}
-    href={'#'}
+    href={href}
   >
     {children}
   </Link>
@@ -33,7 +40,7 @@ export default function Simple() {
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4} width={'full'}>
+      <Box bg={useColorModeValue('white', 'gray.900')} px={4} width={'full'}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -43,14 +50,15 @@ export default function Simple() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>Logo</Box>
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}
             >
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.label} href={link.href}>
+                  {link.label}
+                </NavLink>
               ))}
             </HStack>
           </HStack>
@@ -61,7 +69,9 @@ export default function Simple() {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+                <NavLink key={link.label} href={link.href}>
+                  {link.label}
+                </NavLink>
               ))}
             </Stack>
           </Box>

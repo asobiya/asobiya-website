@@ -3,17 +3,22 @@ import Hero from '../components/Hero'
 import { Container } from '../components/Container'
 import { DarkModeSwitch } from '../components/DarkModeSwitch'
 import Features from '../components/Features'
+import Features2 from '../components/Features2'
 import Footer from '../components/Footer'
-import Carousel from '../components/Carousel'
 import Navbar from '../components/Navbar'
+import Heading from '../components/Heading'
+import { Box } from '@chakra-ui/react'
 
 const Index: NextPage = () => (
-  <Container height="500vh">
+  <Container>
     <Navbar />
     <DarkModeSwitch />
-    <Carousel />
-    <Features />
-
+    <Heading>asobiyaへようこそ</Heading>
+    <Hero />
+    <Box my={100}>
+      <Features />
+    </Box>
+    <Features2 />
     <Footer />
   </Container>
 )

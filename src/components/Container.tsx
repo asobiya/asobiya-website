@@ -1,6 +1,6 @@
 import { Flex, FlexProps } from '@chakra-ui/react'
 
-export const Container = (props: FlexProps) => (
+export const Container: React.FC<FlexProps> = ({ children, ...props }) => (
   <Flex
     direction="column"
     alignItems="center"
@@ -12,6 +12,9 @@ export const Container = (props: FlexProps) => (
       color: 'white',
     }}
     transition="all 0.15s ease-out"
+    height="full"
     {...props}
-  />
+  >
+    {children}
+  </Flex>
 )

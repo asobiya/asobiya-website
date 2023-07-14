@@ -1,39 +1,40 @@
 import { extendTheme } from '@chakra-ui/react'
-
-const fonts = { mono: `'Menlo', monospace` }
-
-const breakpoints = {
-  sm: '40em',
-  md: '52em',
-  lg: '64em',
-  xl: '80em',
-}
+const customFontPath = '/fonts/shokakiutage.ttf'
 
 const theme = extendTheme({
-  semanticTokens: {
-    colors: {
-      text: {
-        default: '#16161D',
-        _dark: '#ade3b8',
+  fonts: {
+    body: 'shokakiutage, sans-serif',
+    heading: 'shokakiutage, sans-serif',
+  },
+  styles: {
+    global: {
+      '@font-face': {
+        fontFamily: 'shokakiutage',
+        src: `url(${customFontPath})`,
       },
-      heroGradientStart: {
-        default: '#7928CA',
-        _dark: '#e3a7f9',
-      },
-      heroGradientEnd: {
-        default: '#FF0080',
-        _dark: '#fbec8f',
-      },
-    },
-    radii: {
-      button: '12px',
     },
   },
+
+  fontSizes: {
+    sm: '28px',
+    md: '32px',
+    lg: '36px',
+    xl: '40px',
+    '2xl': '48px',
+    '3xl': '56px',
+    '4xl': '64px',
+    '5xl': '72px',
+    '6xl': '80px',
+    '7xl': '96px',
+    '8xl': '112px',
+    '9xl': '128px',
+  },
+
   colors: {
-    black: '#16161D',
+    gray: {
+      50: 'white',
+    },
   },
-  fonts,
-  breakpoints,
 })
 
 export default theme

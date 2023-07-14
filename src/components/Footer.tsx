@@ -7,8 +7,9 @@ import {
   Text,
   useColorModeValue,
   VisuallyHidden,
+  useTheme,
 } from '@chakra-ui/react'
-import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { FaInstagram, FaTwitter, FaYoutube, FaDiscord } from 'react-icons/fa'
 import { ReactNode } from 'react'
 
 const SocialButton = ({
@@ -44,6 +45,9 @@ const SocialButton = ({
 }
 
 export default function SmallCentered() {
+  const theme = useTheme()
+  const font = theme.fonts.heading
+
   return (
     <Box
       bg={useColorModeValue('gray.50', 'gray.900')}
@@ -52,14 +56,25 @@ export default function SmallCentered() {
       <Container
         as={Stack}
         maxW={'6xl'}
-        py={4}
+        pt={2}
+        pb={3}
         spacing={4}
         justify={'center'}
         align={'center'}
       >
         <Stack direction={'row'} spacing={6}>
-          <Link href={'/about'}>About</Link>
-          <Link href={'https://forms.gle/GYXm5wmJfSbbERwTA'}>Contact</Link>
+          <Link href={'/about'} fontSize="sm">
+            About
+          </Link>
+          <Link href={'/team'} fontSize="sm">
+            Team
+          </Link>
+          <Link href={'https://discord.gg/asobiya'} fontSize="sm">
+            Discord
+          </Link>
+          <Link href={'https://forms.gle/GYXm5wmJfSbbERwTA'} fontSize="sm">
+            Contact
+          </Link>
         </Stack>
       </Container>
 
@@ -71,14 +86,25 @@ export default function SmallCentered() {
         <Container
           as={Stack}
           maxW={'6xl'}
-          py={4}
+          pt={1}
+          pb={8}
           direction={{ base: 'column', md: 'row' }}
           spacing={4}
           justify={{ base: 'center', md: 'space-between' }}
           align={{ base: 'center', md: 'center' }}
         >
-          <Text>© asobiya</Text>
+          <Text fontFamily={font} fontSize="sm">
+            asobiya
+          </Text>
+
           <Stack direction={'row'} spacing={6}>
+            <SocialButton
+              label={'Discord'}
+              href={'https://discord.com/invite/R4BFAgTVYx'}
+            >
+              <FaDiscord />
+            </SocialButton>
+
             <SocialButton
               label={'Twitter'}
               href={'https://twitter.com/asobiya_dao'}
@@ -86,16 +112,17 @@ export default function SmallCentered() {
               <FaTwitter />
             </SocialButton>
             <SocialButton
-              label={'YouTube'}
-              href={'https://www.youtube.com/channel/UCjGmgBPlLTOKSsXiqToZIKA'}
-            >
-              <FaYoutube />
-            </SocialButton>
-            <SocialButton
               label={'Instagram'}
               href={'https://www.instagram.com/asobiya_dao/'}
             >
               <FaInstagram />
+            </SocialButton>
+
+            <SocialButton
+              label={'YouTube'}
+              href={'https://www.youtube.com/channel/UCjGmgBPlLTOKSsXiqToZIKA'}
+            >
+              <FaYoutube />
             </SocialButton>
           </Stack>
         </Container>

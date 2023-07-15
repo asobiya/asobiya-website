@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useRef, useEffect, useState } from 'react'
 import {
   Box,
   Flex,
@@ -10,6 +10,7 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
+import { useScroll } from 'react-use'
 
 const Links = [
   { label: 'About', href: '/about' },
@@ -37,10 +38,36 @@ const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      setIsScrolled(scrollTop > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <>
-      <Box bg={useColorModeValue('white', 'gray.900')} px={4} width={'full'}>
+      <Box
+        bg={useColorModeValue('white', 'gray.900')}
+        px={4}
+        width={'full'}
+        position={isScrolled ? 'fixed' : 'absolute'}
+        top={isScrolled ? 0 : '-100px'}
+        left={0}
+        zIndex={isScrolled ? 'sticky' : 'auto'}
+        boxShadow={isScrolled ? 'md' : 'none'}
+        transition="top 0.3s ease-in-out"
+        ref={scrollRef}
+      >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}

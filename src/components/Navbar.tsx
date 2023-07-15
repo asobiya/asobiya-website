@@ -13,7 +13,7 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 
 const Links = [
   { label: 'About', href: '/about' },
-  { label: 'Team', href: '/members' },
+  { label: 'Members', href: '/members' },
   { label: 'Discord', href: 'https://discord.com/invite/R4BFAgTVYx' },
   { label: 'Contact', href: 'https://forms.gle/GYXm5wmJfSbbERwTA' },
 ]

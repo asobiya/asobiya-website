@@ -67,7 +67,7 @@ export default function SmallCentered() {
             About
           </Link>
           <Link href={'/members'} fontSize="sm">
-            Team
+            Members
           </Link>
           <Link href={'https://discord.gg/asobiya'} fontSize="sm">
             Discord

@@ -16,7 +16,7 @@ export default function SplitWithImage() {
           <Stack spacing={4}>
             <Heading>Welcome to asobiya</Heading>
             <Text color={'gray.500'} fontSize={'lg'}>
-              asobiyaへようこそ。
+              asobiyaへようこそ
             </Text>
           </Stack>
         </Flex>

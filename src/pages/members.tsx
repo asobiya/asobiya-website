@@ -2,7 +2,7 @@ import { Text, Stack, Heading, Center } from '@chakra-ui/react'
 
 import { MemberCard } from '@/components/MemberCard'
 import { Container } from '@/components/Container'
-import NavBar from '@/components/NavBar'
+import NavBar from '@/components/NavBarTemp'
 import Footer from '@/components/Footer'
 
 const Index = () => (

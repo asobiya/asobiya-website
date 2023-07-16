@@ -5,7 +5,7 @@ import { Container } from '../components/Container'
 import Features from '../components/Features'
 import Features2 from '../components/Features2'
 import Footer from '../components/Footer'
-import Navbar from '../components/NavBarTemp'
+import Navbar from '../components/NavBar'
 import Header from '../components/Header'
 
 const Index: NextPage = () => (

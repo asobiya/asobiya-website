@@ -56,10 +56,11 @@ export default function SmallCentered() {
       <Container
         as={Stack}
         maxW={'6xl'}
-        pt={400}
+        pt={5}
         pb={3}
         spacing={4}
-        justify={'center'}
+        direction={{ base: 'column', md: 'row' }}
+        justify={{ base: 'center', md: 'space-between' }}
         align={'center'}
       >
         <Stack direction={'row'} spacing={6}>

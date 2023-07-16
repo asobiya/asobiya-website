@@ -1,47 +1,72 @@
-import { ReactNode } from 'react'
-import NextLink from 'next/link'
+import { ReactNode, useRef, useEffect, useState } from 'react'
 import {
   Box,
   Flex,
   HStack,
+  Link,
   IconButton,
-  Button,
   useDisclosure,
   useColorModeValue,
   Stack,
-  useColorMode,
 } from '@chakra-ui/react'
-import { HamburgerIcon, CloseIcon, MoonIcon, SunIcon } from '@chakra-ui/icons'
+import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
 
-const links = [
-  { text: 'Home', url: '/' },
-  { text: 'Members', url: '/members' },
-  { text: 'About', url: '/about' },
+const Links = [
+  { label: 'About', href: '/about' },
+  { label: 'Members', href: '/members' },
+  { label: 'Discord', href: 'https://discord.com/invite/R4BFAgTVYx' },
+  { label: 'Contact', href: 'https://forms.gle/GYXm5wmJfSbbERwTA' },
 ]
 
-const NavLink = ({ href, children }: { href: string; children: ReactNode }) => (
-  <NextLink href={href}>
-    <Button
-      px={2}
-      py={1}
-      rounded={'md'}
-      _hover={{
-        textDecoration: 'none',
-        bg: useColorModeValue('gray.200', 'gray.700'),
-      }}
-    >
-      {children}
-    </Button>
-  </NextLink>
+const NavLink = ({ children, href }: { children: ReactNode; href: string }) => (
+  <Link
+    px={2}
+    py={1}
+    rounded={'md'}
+    fontSize="xl"
+    color={useColorModeValue('black', 'white')}
+    _hover={{
+      textDecoration: 'none',
+      bg: useColorModeValue('gray.200', 'gray.700'),
+    }}
+    href={href}
+  >
+    {children}
+  </Link>
 )
 
-export default function NavBar() {
+export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure()
-  const { colorMode, toggleColorMode } = useColorMode()
+  const scrollRef = useRef<HTMLDivElement>(null)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      setIsScrolled(scrollTop > 0)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box
+        bg={useColorModeValue('white', 'gray.900')}
+        px={4}
+        width={'full'}
+        position={isScrolled ? 'fixed' : 'absolute'}
+        top={isScrolled ? 0 : '-100px'}
+        left={0}
+        zIndex={isScrolled ? 'sticky' : 'auto'}
+        boxShadow={isScrolled ? 'md' : 'none'}
+        transition="top 0.3s ease-in-out"
+        ref={scrollRef}
+      >
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
           <IconButton
             size={'md'}
@@ -51,32 +76,27 @@ export default function NavBar() {
             onClick={isOpen ? onClose : onOpen}
           />
           <HStack spacing={8} alignItems={'center'}>
-            <Box>あそびや</Box>
             <HStack
               as={'nav'}
               spacing={4}
               display={{ base: 'none', md: 'flex' }}
             >
-              {links.map((link) => (
-                <NavLink key={link.url} href={link.url}>
-                  {link.text}
+              {Links.map((link) => (
+                <NavLink key={link.label} href={link.href}>
+                  {link.label}
                 </NavLink>
               ))}
             </HStack>
           </HStack>
-          <Flex alignItems={'center'}>
-            <Button onClick={toggleColorMode}>
-              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-            </Button>
-          </Flex>
+          <Flex alignItems={'center'}></Flex>
         </Flex>
 
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-              {links.map((link) => (
-                <NavLink key={link.url} href={link.url}>
-                  {link.text}
+              {Links.map((link) => (
+                <NavLink key={link.label} href={link.href}>
+                  {link.label}
                 </NavLink>
               ))}
             </Stack>

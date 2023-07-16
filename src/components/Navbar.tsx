@@ -10,7 +10,6 @@ import {
   Stack,
 } from '@chakra-ui/react'
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons'
-import { useScroll } from 'react-use'
 
 const Links = [
   { label: 'About', href: '/about' },

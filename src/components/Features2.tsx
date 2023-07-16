@@ -21,7 +21,7 @@ export default function SplitWithImage() {
 
         <Flex alignItems="center" justifyContent="flex-end" minHeight="100%">
           <Stack spacing={4}>
-            <Heading>遊んで暮らせる世界をつくろう</Heading>
+            <Heading>遊んで暮らせる世界を一緒につくろう！</Heading>
             <Text color={'gray.500'} fontSize={'lg'}>
               asobiyaは「遊んで暮らせる世界をつくるDAO」を目指すweb3コミュニティです。
             </Text>

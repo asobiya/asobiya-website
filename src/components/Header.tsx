@@ -4,11 +4,11 @@ const Header = () => {
   const filter = useColorModeValue('none', 'invert(1)')
 
   return (
-    <Flex width="65%" justifyContent="center" ml="24">
+    <Flex width="50%" justifyContent="flex-start" ml="4">
       <Image
         src="/images/asobiya.svg"
         alt="asobiya"
-        mt="-200px"
+        mt="-20px"
         style={{ filter }}
       />
     </Flex>

@@ -1,18 +1,9 @@
 import { extendTheme } from '@chakra-ui/react'
-const customFontPath = '/fonts/shokakiutage.ttf'
 
 const theme = extendTheme({
   fonts: {
-    body: 'shokakiutage, sans-serif',
-    heading: 'shokakiutage, sans-serif',
-  },
-  styles: {
-    global: {
-      '@font-face': {
-        fontFamily: 'shokakiutage',
-        src: `url(${customFontPath})`,
-      },
-    },
+    body: 'Roboto, sans-serif',
+    heading: 'Roboto, sans-serif',
   },
 
   fontSizes: {

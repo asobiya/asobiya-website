@@ -61,6 +61,14 @@ const members: MemberData[] = [
     skills: 'Guitar, Vocal, アウトドア, 野球, ガヤ',
     bio: '楽しいことして生きてたい宇宙人',
   },
+  {
+    name: 'たけるん takerun',
+    avatar: 'avator-takerun.jpg',
+    discord: 'nfttakerun',
+    twitter: 'nfttakerun',
+    skills: 'イベント企画運営, 配信MC, ネーミング',
+    bio: 'ニョロニョロ🐍',
+  },
 ]
 
 // Fisher–Yates shuffle algorithm

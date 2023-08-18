@@ -18,6 +18,7 @@ const links = [
   { text: 'Home', url: '/' },
   { text: 'Members', url: '/members' },
   { text: 'About', url: '/about' },
+  { text: 'Contact', url: 'https://forms.gle/GYXm5wmJfSbbERwTA' },
 ]
 
 const NavLink = ({ href, children }: { href: string; children: ReactNode }) => (

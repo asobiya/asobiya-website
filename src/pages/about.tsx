@@ -3,15 +3,13 @@ import { NextPage } from 'next'
 import { Container } from '../components/Container'
 import Footer from '../components/Footer'
 import NavBar from '../components/NavBar'
+import AboutAsobiya from '@/components/AboutAsobiya'
 
 const AboutPage: NextPage = () => {
   return (
     <>
       <NavBar />
-      <Box p={4}>
-        <Heading>Aboutページ</Heading>
-        <Text>metababy</Text>
-      </Box>
+      <AboutAsobiya />
       <Container>
         <Footer />
       </Container>

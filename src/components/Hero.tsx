@@ -10,7 +10,7 @@ export default function WithBackgroundImage() {
         { filter: 'invert(0%)' },
         { filter: 'invert(100%)' }
       )}
-      backgroundSize={'auto'}
+      backgroundSize={['contain', 'contain', 'auto']}
       backgroundPosition={'center center'}
       backgroundRepeat={'no-repeat'}
     ></Flex>

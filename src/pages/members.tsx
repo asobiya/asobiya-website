@@ -69,6 +69,14 @@ const members: MemberData[] = [
     skills: 'イベント企画運営, 配信MC, ネーミング',
     bio: 'ニョロニョロ🐍',
   },
+  {
+    name: 'mashharuki',
+    avatar: 'avatar-mashharuki.jpg',
+    discord: 'mashharuki',
+    twitter: 'HARUKI05758694',
+    skills: 'Web3アプリ開発(フルスタック)',
+    bio: '',
+  },
 ]
 
 // Fisher–Yates shuffle algorithm
